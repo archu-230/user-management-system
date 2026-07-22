@@ -1,13 +1,13 @@
-import { Button } from "@mui/material";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
+import { ThemeProvider } from "./context/ThemeContext";
 
-function App() {
-
+const App = () => {
   return (
-    <>
-      User Management System
-      <Button variant="contained">Save me</Button>
-    </>
-  )
-}
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  );
+};
 
-export default App
+export default App;
