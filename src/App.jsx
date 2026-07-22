@@ -1,11 +1,11 @@
-import {Button} from "@mui/material";
+import { Button } from "@mui/material";
 
 function App() {
- 
+
   return (
     <>
-    User Management System
-   <Button variant="contained">Save me</Button>
+      User Management System
+      <Button variant="contained">Save me</Button>
     </>
   )
 }
