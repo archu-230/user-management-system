@@ -1,5 +1,6 @@
 import { createTheme, ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 
 const theme = createTheme({
     cssVariables: {
@@ -10,10 +11,13 @@ const theme = createTheme({
 
 const ThemeProvider = ({ children }) => {
     return (
-        <MuiThemeProvider theme={theme} defaultMode="light">
-            <CssBaseline />
-            {children}
-        </MuiThemeProvider>
+        <>
+
+            <MuiThemeProvider theme={theme} defaultMode="light" noSsr={false}>
+                <CssBaseline enableColorScheme />
+                {children}
+            </MuiThemeProvider>
+        </>
     );
 };
 
