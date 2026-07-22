@@ -1,14 +1,16 @@
 import { useColorScheme } from "@mui/material/styles";
 
 const useThemeMode = () => {
-    const { mode, setMode } = useColorScheme();
+    const { mode, systemMode, setMode } = useColorScheme();
+
+    const resolvedMode = mode === "system" ? systemMode : mode;
 
     const toggleTheme = () => {
-        setMode(mode === "dark" ? "light" : "dark");
+        setMode(resolvedMode === "dark" ? "light" : "dark");
     };
 
     return {
-        mode,
+        mode: resolvedMode,
         setMode,
         toggleTheme,
     };
