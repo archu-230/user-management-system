@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-    User Management <System></System>
+    User Management System
     </>
   )
 }
