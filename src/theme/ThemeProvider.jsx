@@ -12,7 +12,7 @@ const theme = createTheme({
 const ThemeProvider = ({ children }) => {
     return (
         <>
-
+            <InitColorSchemeScript attribute="class" />
             <MuiThemeProvider theme={theme} defaultMode="light" noSsr={false}>
                 <CssBaseline enableColorScheme />
                 {children}
