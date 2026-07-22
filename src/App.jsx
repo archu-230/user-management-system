@@ -1,11 +1,11 @@
 import {Button} from "@mui/material";
+import ThemeSwitcher from "./Theme";
 
 function App() {
  
   return (
     <>
-    User Management System
-   <Button variant="contained">Save me</Button>
+    <ThemeSwitcher />
     </>
   )
 }
