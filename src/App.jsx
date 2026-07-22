@@ -1,11 +1,10 @@
-import { RouterProvider } from "react-router-dom";
-import router from "./router";
-import { ThemeProvider } from "./context/ThemeContext";
+import MainLayout from "./layouts/MainLayout";
+import ThemeProvider from "./theme/ThemeProvider";
 
 const App = () => {
   return (
     <ThemeProvider>
-      <RouterProvider router={router} />
+      <MainLayout />
     </ThemeProvider>
   );
 };
