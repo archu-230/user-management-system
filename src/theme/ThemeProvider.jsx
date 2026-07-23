@@ -6,15 +6,18 @@ const theme = createTheme({
     cssVariables: {
         colorSchemeSelector: "class",
     },
-    colorSchemes: { light: true, dark: true },
+    colorSchemes: {
+        light: true,
+        dark: true,
+    },
 });
 
 const ThemeProvider = ({ children }) => {
     return (
         <>
             <InitColorSchemeScript attribute="class" />
-            <MuiThemeProvider theme={theme} defaultMode="light" noSsr={false}>
-                <CssBaseline enableColorScheme />
+            <MuiThemeProvider theme={theme} defaultMode="light">
+                <CssBaseline />
                 {children}
             </MuiThemeProvider>
         </>
