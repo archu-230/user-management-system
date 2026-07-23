@@ -2,7 +2,7 @@ import { AppBar, Toolbar, Typography, Box, IconButton } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ThemeToggle from "./ThemeToggle";
 
-const Header = () => {
+const AppBar = () => {
     return (
         <AppBar position="fixed" color="default">
             <Toolbar>
@@ -37,4 +37,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default AppBar;

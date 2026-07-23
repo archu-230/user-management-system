@@ -1,13 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
 import MUIProvider from "./providers/MUI";
-import Header from "./components/AppBar";
+import AppBar from "./components/AppBar";
 import Breadcrumbs from "./components/Breadcrumbs";
 
 const App = () => {
   return (
     <BrowserRouter>
       <MUIProvider>
-        <Header />
+        <AppBar />
         <Breadcrumbs
           items={[
             { label: "Home", path: "/" },
