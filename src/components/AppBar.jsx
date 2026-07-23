@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography, Box, IconButton } from "@mui/material";
+import { AppBar as MuiAppBar, Toolbar, Typography, Box, IconButton } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ThemeToggle from "./ThemeToggle";
 
