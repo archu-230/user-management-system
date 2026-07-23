@@ -13,7 +13,7 @@ export default function Profile() {
   return (
     <Box
       sx={{
-        p: 3,
+        p: { xs: 1.5, sm: 3 },
         display: "flex",
         justifyContent: "center",
       }}
@@ -23,33 +23,39 @@ export default function Profile() {
         sx={{
           width: "100%",
           maxWidth: 700,
-          p: 4,
-          borderRadius: 3,
+          p: { xs: 2, sm: 4 },
+          borderRadius: { xs: 2, sm: 3 },
         }}
       >
         <Stack spacing={3}>
           {/* Header */}
           <Stack
-            direction="row"
+            direction={{ xs: "column", sm: "row" }}
             spacing={2}
-            sx={{ alignItems: "center" }}
+            sx={{ alignItems: { xs: "flex-start", sm: "center" } }}
           >
             <Avatar
               sx={{
-                width: 80,
-                height: 80,
-                fontSize: 32,
+                width: { xs: 64, sm: 80 },
+                height: { xs: 64, sm: 80 },
+                fontSize: { xs: 26, sm: 32 },
               }}
             >
               U
             </Avatar>
 
-            <Box sx={{ flexGrow: 1 }}>
-              <Typography variant="h5" fontWeight={600}>
+            <Box sx={{ flexGrow: 1, minWidth: 0 }}>
+              <Typography variant="h5" fontWeight={600} sx={{ fontSize: { xs: 20, sm: 24 } }}>
                 User Name
               </Typography>
 
-              <Typography color="text.secondary">
+              <Typography
+                color="text.secondary"
+                sx={{
+                  wordBreak: "break-word",
+                  fontSize: { xs: 14, sm: 16 },
+                }}
+              >
                 user@example.com
               </Typography>
             </Box>
@@ -57,6 +63,7 @@ export default function Profile() {
             <Button
               variant="outlined"
               startIcon={<EditOutlinedIcon />}
+              sx={{ width: { xs: "100%", sm: "auto" } }}
             >
               Edit
             </Button>
