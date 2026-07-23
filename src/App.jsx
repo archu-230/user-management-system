@@ -1,4 +1,4 @@
-import MUIProvider from "./provider/MUI";
+import MUIProvider from "./providers/MUI";
 import Header from "./components/Navbar";
 
 const App = () => {
