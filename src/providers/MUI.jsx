@@ -1,4 +1,4 @@
-import { createTheme, ThemeProvider, useColorScheme } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 
@@ -12,20 +12,6 @@ const theme = createTheme({
     },
 });
 
-const useThemeMode = () => {
-    const { mode, setMode } = useColorScheme();
-
-    const toggleTheme = () => {
-        setMode(mode === "dark" ? "light" : "dark");
-    };
-
-    return {
-        mode,
-        setMode,
-        toggleTheme,
-    };
-};
-
 const MUIProvider = ({ children }) => {
     return (
         <>
@@ -38,5 +24,4 @@ const MUIProvider = ({ children }) => {
     );
 };
 
-export { useThemeMode };
 export default MUIProvider;
