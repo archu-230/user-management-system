@@ -1,13 +1,12 @@
-import {Button} from "@mui/material";
+import MUIProvider from "./provider/MUI";
+import Header from "./components/Navbar";
 
-function App() {
- 
+const App = () => {
   return (
-    <>
-    User Management System
-   <Button variant="contained">Save me</Button>
-    </>
-  )
-}
+    <MUIProvider>
+      <Header />
+    </MUIProvider>
+  );
+};
 
-export default App
+export default App;
