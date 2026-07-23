@@ -1,11 +1,11 @@
-import MainLayout from "./layouts/MainLayout";
-import ThemeProvider from "./theme/ThemeProvider";
+import MUIProvider from "./provider/MUI";
+import Header from "./components/Navbar";
 
 const App = () => {
   return (
-    <ThemeProvider>
-      <MainLayout />
-    </ThemeProvider>
+    <MUIProvider>
+      <Header />
+    </MUIProvider>
   );
 };
 
