@@ -2,7 +2,7 @@
 import { Breadcrumbs, Toolbar } from "@mui/material";
 import { useState } from "react";
 import MUIProvider from "./providers/MUI";
-import AppBoard from "./components/app-board";
+import AppDrawer from "./components/app-drawer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Profile from "./pages/Profile";
 import Bar from "./components/navbar"
@@ -16,9 +16,9 @@ const App = () => {
     <BrowserRouter>
       <MUIProvider>
 
-        <Bar onclickMenu={() => setOpen(prev => !prev)} />
+        <Bar onClickMenu={() => setOpen(prev => !prev)} />
         <Toolbar />
-        <AppBoard open={open} />
+        <AppDrawer open={open} />
         <AppBreadcrumb />
          <Routes>
           <Route path="/profile" element={<Profile />} />
