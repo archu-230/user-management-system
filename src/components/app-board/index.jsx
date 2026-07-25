@@ -2,13 +2,13 @@ import { Drawer, Box, Typography, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 
-export default function AppBoard({isOpen}) {
+export default function AppBoard({open}) {
   
   
   return (
     
     <Drawer
-      open={isOpen}
+      open={open}
       variant="persistent"
       slotProps={{
         paper: {

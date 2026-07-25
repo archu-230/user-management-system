@@ -10,7 +10,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import ThemeToggleButton from "../ThemeToggle";
 import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Navbar = () => {
   const navigate=useNavigate();
   return (
     <AppBar
@@ -54,4 +54,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;

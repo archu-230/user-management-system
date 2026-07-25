@@ -1,20 +1,20 @@
 import { Toolbar } from "@mui/material";
 import { useState } from "react";
 import MUIProvider from "./providers/MUI";
-import Header from "./components/app-bar";
+import AppBar from "./components/app-bar";
 import AppBoard from "./components/app-board";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Profile from "./pages/Profile";
 
 const App = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <BrowserRouter>
       <MUIProvider>
-          <Header/>
+          <AppBar/>
         <Toolbar />
-        <AppBoard isOpen={isOpen} setIsOpen={setIsOpen} />
+        <AppBoard open={open} />
           <Routes>
             <Route path="/profile" element={<Profile />} />
             <Route path="/" element={<></>}/>
