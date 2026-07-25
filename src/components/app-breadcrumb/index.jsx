@@ -3,15 +3,15 @@ import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { Link as RouterLink, useLocation, matchPath } from "react-router-dom";
 
 import breadcrumbConfig from "./config";
 
 const AppBreadcrumb = () => {
     const { pathname } = useLocation();
 
-    const currentBreadcrumb = breadcrumbConfig.find(
-        (item) => item.path === pathname
+    const currentBreadcrumb = breadcrumbConfig.find((item) =>
+        matchPath({ path: item.path, end: true }, pathname)
     );
 
     return (
