@@ -2,33 +2,35 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import MenuIcon from "@mui/icons-material/Menu";
-import Theme from "../button/ThemeButton";
+import { Menu, People } from "@mui/icons-material";
 import { ThemeContext } from "@emotion/react";
 import ThemeToggleButton from "../ThemeToggle";
-function Bar({onclickMenu}) {
-
+import { useNavigate } from "react-router-dom";
+function Bar({ onclickMenu }) {
+  const navigate = useNavigate();
   return (
-   <AppBar
+    <AppBar
       position="fixed"
       color="secondary"
-      sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, borderRadius: 2 }}
     >
       <Toolbar variant="dense">
-
-        <IconButton onClick={onclickMenu}
+        <IconButton
+          onClick={onclickMenu}
           edge="start"
           color="inherit"
           aria-label="menu"
           sx={{ mr: 2 }}
         >
-          <MenuIcon />
+          <Menu />
         </IconButton>
-
-        <Typography variant="h6" sx={{flexGrow:1,textAlign:"center"}}>
+        <Typography variant="h6" sx={{ flexGrow: 1, textAlign: "center" }}>
           UMS
         </Typography>
-        <ThemeToggleButton/>
+        <ThemeToggleButton />
+        <IconButton onClick={() => navigate("/profile")}>
+          <People />
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
