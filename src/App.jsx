@@ -1,20 +1,27 @@
-import { Box } from "@mui/material";
-import Bar from "./components/navbar/NavBar";
+  
+import { Toolbar } from "@mui/material";
 import { useState } from "react";
 import MUIProvider from "./providers/MUI";
+import AppBar from "./components/app-bar";
+import AppBoard from "./components/app-board";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Profile from "./pages/Profile";
 
-function App() {
-  const [open,setOpen]=useState(false);
-  
+const App = () => {
+  const [open, setOpen] = useState(false);
+
   return (
-   
-     <MUIProvider>
-    <Bar onclickMenu={()=>setOpen(prev=>!prev)}/>
-  
-  
- </MUIProvider>
-   
-    
+    <BrowserRouter>
+      <MUIProvider>
+         <Bar onclickMenu={()=>setOpen(prev=>!prev)}/>
+        <Toolbar />
+        <AppBoard open={open} />
+          <Routes>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/" element={<></>}/>
+          </Routes>
+      </MUIProvider>
+    </BrowserRouter>
   );
 }
 
