@@ -7,10 +7,10 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 
-import ThemeToggleButton from "./ThemeToggle";
+import ThemeToggleButton from "../ThemeToggle";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ onMenuClick }) => {
+const Header = () => {
   const navigate=useNavigate();
   return (
     <AppBar
