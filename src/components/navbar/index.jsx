@@ -5,14 +5,18 @@ import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import Theme from "../button/ThemeButton";
 import { ThemeContext } from "@emotion/react";
-import { useThemeContext } from "../../context/ThemeContext";
-function Bar({onMenuClick}) {
-const {mode,toggleTheme} = useThemeContext();
+import ThemeToggleButton from "../ThemeToggle";
+function Bar({onclickMenu}) {
+
   return (
-    <AppBar position="static" color="secondary">
+   <AppBar
+      position="fixed"
+      color="secondary"
+      sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+    >
       <Toolbar variant="dense">
 
-        <IconButton onClick={onMenuClick}
+        <IconButton onClick={onclickMenu}
           edge="start"
           color="inherit"
           aria-label="menu"
@@ -24,7 +28,7 @@ const {mode,toggleTheme} = useThemeContext();
         <Typography variant="h6" sx={{flexGrow:1,textAlign:"center"}}>
           UMS
         </Typography>
-        <Theme onClickIcon={toggleTheme}/>
+        <ThemeToggleButton/>
       </Toolbar>
     </AppBar>
   );
