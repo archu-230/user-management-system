@@ -1,3 +1,4 @@
+  
 import { Toolbar } from "@mui/material";
 import { useState } from "react";
 import MUIProvider from "./providers/MUI";
@@ -12,7 +13,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <MUIProvider>
-          <AppBar/>
+         <Bar onclickMenu={()=>setOpen(prev=>!prev)}/>
         <Toolbar />
         <AppBoard open={open} />
           <Routes>
@@ -22,6 +23,7 @@ const App = () => {
       </MUIProvider>
     </BrowserRouter>
   );
-};
+}
+
 
 export default App;
