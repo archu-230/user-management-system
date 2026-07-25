@@ -5,8 +5,7 @@ import MUIProvider from "./providers/MUI";
 import AppBoard from "./components/app-board";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Profile from "./pages/Profile";
-import Bar from "./components/navbar"
-import breadcrumbConfig from "./components/app-breadcrumb/config";
+import AppBar from "./components/app-bar";
 import AppBreadcrumb from "./components/app-breadcrumb";
 
 const App = () => {
@@ -16,7 +15,7 @@ const App = () => {
     <BrowserRouter>
       <MUIProvider>
 
-        <Bar onclickMenu={() => setOpen(prev => !prev)} />
+        <AppBar onclickMenu={() => setOpen(prev => !prev)} />
         <Toolbar />
         <AppBoard open={open} />
         <AppBreadcrumb />
