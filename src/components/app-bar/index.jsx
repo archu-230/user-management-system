@@ -28,7 +28,7 @@ const Header = () => {
         }}
       >
         {/* Left side menu icon */}
-        <IconButton edge="start" onClick={onMenuClick}>
+        <IconButton edge="start">
           <MenuIcon />
         </IconButton>
 
