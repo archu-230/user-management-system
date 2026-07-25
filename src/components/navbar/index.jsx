@@ -6,6 +6,8 @@ import { Menu, People } from "@mui/icons-material";
 import { ThemeContext } from "@emotion/react";
 import ThemeToggleButton from "../ThemeToggle";
 import { useNavigate } from "react-router-dom";
+
+
 function Bar({ onclickMenu }) {
   const navigate = useNavigate();
   return (

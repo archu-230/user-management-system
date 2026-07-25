@@ -19,11 +19,11 @@ const App = () => {
         <Bar onclickMenu={() => setOpen(prev => !prev)} />
         <Toolbar />
         <AppBoard open={open} />
-        <Routes>
+        <AppBreadcrumb />
+         <Routes>
           <Route path="/profile" element={<Profile />} />
           <Route path="/" element={<></>} />
         </Routes>
-        <AppBreadcrumb />
       </MUIProvider>
     </BrowserRouter>
   );
