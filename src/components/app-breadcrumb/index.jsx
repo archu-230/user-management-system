@@ -5,7 +5,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 import { Link as RouterLink, useLocation } from "react-router-dom";
 
-import breadcrumbConfig from "../config/breadcrumbConfig";
+import breadcrumbConfig from "./config";
 
 const AppBreadcrumb = () => {
     const { pathname } = useLocation();
@@ -17,11 +17,10 @@ const AppBreadcrumb = () => {
     return (
         <Breadcrumbs
             separator={<ChevronRightIcon fontSize="small" />}
-            sx={{ p: 2 }}
-        >
+            sx={{ p: 2 }} >
             <Link
                 component={RouterLink}
-                underline="hover"
+                underline="none"
                 color="inherit"
                 to="/"
             >
