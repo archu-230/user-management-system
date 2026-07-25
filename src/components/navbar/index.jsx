@@ -8,7 +8,7 @@ import ThemeToggleButton from "../ThemeToggle";
 import { useNavigate } from "react-router-dom";
 
 
-function Bar({ onclickMenu }) {
+function Bar({ onClickMenu }) {
   const navigate = useNavigate();
   return (
     <AppBar
@@ -18,7 +18,7 @@ function Bar({ onclickMenu }) {
     >
       <Toolbar variant="dense">
         <IconButton
-          onClick={onclickMenu}
+          onClick={onClickMenu}
           edge="start"
           color="inherit"
           aria-label="menu"
