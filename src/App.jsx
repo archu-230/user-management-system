@@ -1,10 +1,15 @@
 import { Box } from "@mui/material";
-import ThemeButton from "./components/ThemeButton";
-// import Home from '../src/pages/Home/Home.jsx';
-
+import Bar from "./components/navbar/NavBar";
+import { useState } from "react";
 
 function App() {
+  const [open,setOpen]=useState(false);
+  
   return (
+    
+    <>
+    <Bar onclickMenu={()=>setOpen(prev=>!prev)}/>
+  
     <Box
       sx={{
         display: "flex",
@@ -13,9 +18,8 @@ function App() {
         height: "100vh",
       }}
     >
-      <ThemeButton />
     </Box>
-    
+    </>
     
   );
 }

@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 const ThemeContext = createContext();
 
 export const ThemeContextProvider = ({ children }) => {
-  const [mode, setMode] = useState(
+  const [mode, setMode] = useState(()=>
     localStorage.getItem("theme") || "light"
   );
 
