@@ -24,7 +24,7 @@ function AppBar({ onclickMenu }) {
         >
           <Menu />
         </IconButton>
-        <Typography variant="h6" sx={{ flexGrow: 1, textAlign:"start" }}>
+        <Typography variant="h6" sx={{ flexGrow: 1, textAlign: "start" }}>
           UMS
         </Typography>
         <ThemeToggleButton />
