@@ -1,4 +1,3 @@
-
 import { Breadcrumbs, Toolbar } from "@mui/material";
 import { useState } from "react";
 import MUIProvider from "./providers/MUI";
@@ -14,12 +13,11 @@ const App = () => {
   return (
     <BrowserRouter>
       <MUIProvider>
-
         <Bar onclickMenu={() => setOpen(prev => !prev)} />
         <Toolbar />
         <AppBoard open={open} />
         <AppBreadcrumb />
-         <Routes>
+        <Routes>
           <Route path="/profile" element={<Profile />} />
           <Route path="/" element={<></>} />
         </Routes>
@@ -27,6 +25,4 @@ const App = () => {
     </BrowserRouter>
   );
 }
-
-
 export default App;
