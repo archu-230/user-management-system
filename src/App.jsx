@@ -1,5 +1,5 @@
+import { Toolbar } from "@mui/material";
 
-import { Breadcrumbs, Toolbar } from "@mui/material";
 import { useState } from "react";
 import MUIProvider from "./providers/MUI";
 import AppDrawer from "./components/app-drawer";
@@ -20,11 +20,17 @@ const App = () => {
         <Toolbar />
         <AppDrawer open={open} />
         <AppBreadcrumb />
-        <AppRouter/>
+        <Routes>
+          {routes.map((route) => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={route.element}
+            />
+          ))}
+        </Routes>
       </MUIProvider>
     </BrowserRouter>
   );
 }
-
-
 export default App;

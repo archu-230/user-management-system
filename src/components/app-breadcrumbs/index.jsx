@@ -5,12 +5,12 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 import { Link as RouterLink, useLocation, matchPath } from "react-router-dom";
 
-import breadcrumbConfig from "./config";
+import config from "./config";
 
 const AppBreadcrumb = () => {
     const { pathname } = useLocation();
 
-    const currentBreadcrumb = breadcrumbConfig.find((item) =>
+    const currentBreadcrumb = config.breadcrumbs.find((item) =>
         matchPath({ path: item.path, end: true }, pathname)
     );
 
