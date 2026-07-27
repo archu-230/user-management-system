@@ -10,11 +10,9 @@ import config from "./config";
 const AppBreadcrumb = () => {
     const { pathname } = useLocation();
 
-    const currentBreadcrumb = Object.values(config)
-        .flatMap((module) => module.config)
-        .find((item) =>
-            matchPath({ path: item.path, end: true }, pathname)
-        );
+    const currentBreadcrumb = config.breadcrumbs.find((item) =>
+        matchPath({ path: item.path, end: true }, pathname)
+    );
 
     return (
         <Breadcrumbs
