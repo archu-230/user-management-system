@@ -11,12 +11,12 @@ import AppBreadcrumb from "./components/app-breadcrumb";
 import AppRouter from "./routes";
 
 const App = () => {
+  
   const [open, setOpen] = useState(false);
 
   return (
     <BrowserRouter>
       <MUIProvider>
-
         <Bar onClickMenu={() => setOpen(prev => !prev)} />
         <Toolbar />
         <AppDrawer open={open} />
