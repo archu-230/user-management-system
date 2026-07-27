@@ -17,7 +17,7 @@ const AppBreadcrumb = () => {
     return (
         <Breadcrumbs
             separator={<ChevronRightIcon fontSize="small" />}
-            sx={{ p: 2 }} >
+            sx={{ p: 0 }}>
             <Link
                 component={RouterLink}
                 underline="none"
