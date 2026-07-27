@@ -8,6 +8,7 @@ import Profile from "./pages/Profile";
 import Bar from "./components/navbar"
 import breadcrumbConfig from "./components/app-breadcrumb/config";
 import AppBreadcrumb from "./components/app-breadcrumb";
+import AppRouter from "./routes";
 
 const App = () => {
   const [open, setOpen] = useState(false);
@@ -20,10 +21,7 @@ const App = () => {
         <Toolbar />
         <AppDrawer open={open} />
         <AppBreadcrumb />
-         <Routes>
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/" element={<></>} />
-        </Routes>
+        <AppRouter/>
       </MUIProvider>
     </BrowserRouter>
   );
