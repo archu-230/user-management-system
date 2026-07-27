@@ -7,11 +7,7 @@ import ThemeToggleButton from "../ThemeToggle";
 import { useNavigate } from "react-router-dom";
 
 
-<<<<<<< HEAD:src/components/navbar/index.jsx
-function Bar({ onClickMenu }) {
-=======
-function AppBar({ onclickMenu }) {
->>>>>>> origin/refac/appbar:src/components/app-bar/index.jsx
+function AppBar({ onClickMenu }) {
   const navigate = useNavigate();
   return (
     <MuiAppBar

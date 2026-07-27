@@ -16,7 +16,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <MUIProvider>
-        <AppBar onclickMenu={() => setOpen(prev => !prev)} />
+        <AppBar onClickMenu={() => setOpen(prev => !prev)} />
         <Toolbar />
         <AppDrawer open={open} />
         <AppBreadcrumb />
