@@ -1,37 +1,44 @@
+const homeBreadcrumbs = [
+    { path: "/", label: "Home" },
+];
+
+const dashboardBreadcrumbs = [
+    { path: "/dashboard", label: "Dashboard" },
+    { path: "/dashboard/settings", label: "Settings" },
+];
+
+const usersBreadcrumbs = [
+    { path: "/users", label: "Users" },
+    { path: "/users/:id", label: "User Details" },
+    { path: "/users/:id/edit", label: "Edit User" },
+];
+
+const productsBreadcrumbs = [
+    { path: "/products", label: "Products" },
+    { path: "/products/:productId", label: "Product Details" },
+];
+
+const profileBreadcrumbs = [
+    { path: "/profile", label: "Profile" },
+];
+
+const breadcrumbs = [
+    ...homeBreadcrumbs,
+    ...dashboardBreadcrumbs,
+    ...usersBreadcrumbs,
+    ...productsBreadcrumbs,
+    ...profileBreadcrumbs,
+];
+
+
 const config = {
-    home: {
-        config: [
-            { path: "/", label: "Home" },
-        ],
-    },
-
-    dashboard: {
-        config: [
-            { path: "/dashboard", label: "Dashboard" },
-            { path: "/dashboard/settings", label: "Settings" },
-        ],
-    },
-
-    users: {
-        config: [
-            { path: "/users", label: "Users" },
-            { path: "/users/:id", label: "User Details" },
-            { path: "/users/:id/edit", label: "Edit User" },
-        ],
-    },
-
-    products: {
-        config: [
-            { path: "/products", label: "Products" },
-            { path: "/products/:productId", label: "Product Details" },
-        ],
-    },
-    profile: {
-        config: [
-            {
-                path: "/profile", label: "profile"
-            },
-        ],
+    breadcrumbs,
+    config: {
+        home: homeBreadcrumbs,
+        dashboard: dashboardBreadcrumbs,
+        users: usersBreadcrumbs,
+        products: productsBreadcrumbs,
+        profile: profileBreadcrumbs,
     },
 };
 
