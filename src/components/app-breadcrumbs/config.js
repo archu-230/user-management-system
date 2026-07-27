@@ -26,6 +26,13 @@ const config = {
             { path: "/products/:productId", label: "Product Details" },
         ],
     },
+    profile: {
+        config: [
+            {
+                path: "/profile", label: "profile"
+            },
+        ],
+    },
 };
 
 export default config;
