@@ -16,8 +16,6 @@ export default function Profile() {
     <Box
       sx={{
         p: { xs: 1.5, sm: 3 },
-        display: "flex",
-        justifyContent: "center",
       }}
     >
       <Paper
