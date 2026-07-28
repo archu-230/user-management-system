@@ -16,6 +16,7 @@ const AppBreadcrumb = () => {
         );
 
     return (
+      <Box>
         <Breadcrumbs
             separator={<ChevronRightIcon fontSize="small" />} sx={{ p: 2 }} >
 
@@ -41,6 +42,8 @@ const AppBreadcrumb = () => {
                 ))}
 
         </Breadcrumbs>
+        <Divider />
+        </Box>
     );
 };
 export default AppBreadcrumb;
