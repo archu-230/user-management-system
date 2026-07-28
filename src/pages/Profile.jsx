@@ -8,14 +8,14 @@ import {
   Typography,
 } from "@mui/material";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
         p: { xs: 1.5, sm: 3 },
-        display: "flex",
-        justifyContent: "center",
       }}
     >
       <Paper
@@ -64,6 +64,7 @@ export default function Profile() {
               variant="outlined"
               startIcon={<EditOutlinedIcon />}
               sx={{ width: { xs: "100%", sm: "auto" } }}
+              onClick={() => navigate("/profile/edit")}
             >
               Edit
             </Button>

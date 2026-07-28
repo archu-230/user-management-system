@@ -10,7 +10,7 @@ export default function AppDrawer({ open }) {
       slotProps={{
         paper: {
           sx: {
-            width: 230,
+            width: 260,
             boxSizing: "border-box",
           },
         },
