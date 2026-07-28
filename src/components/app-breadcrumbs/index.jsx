@@ -2,38 +2,47 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import HomeIcon from "@mui/icons-material/Home";
 
 import { Link as RouterLink, useLocation, matchPath } from "react-router-dom";
 
 import config from "./config";
 
 const AppBreadcrumb = () => {
+
     const { pathname } = useLocation();
 
-    const currentBreadcrumb = config.breadcrumbs.find((item) =>
-        matchPath({ path: item.path, end: true }, pathname)
-    );
+    const currentBreadcrumbs = config.breadcrumbs
+        .filter((item) =>
+            matchPath({ path: item.path, end: false }, pathname)
+        );
 
     return (
         <Breadcrumbs
-            separator={<ChevronRightIcon fontSize="small" />}
-            sx={{ p: 2 }} >
+            separator={<ChevronRightIcon fontSize="small" />} sx={{ p: 2 }} >
+
             <Link
                 component={RouterLink}
-                underline="none"
+                to="/" underline="none"
                 color="inherit"
-                to="/"
-            >
-                Home
-            </Link>
+                sx={{ display: "flex", alignItems: "center", }} >
+                <HomeIcon fontSize="small" />
 
-            {currentBreadcrumb && pathname !== "/" && (
-                <Typography color="text.primary">
-                    {currentBreadcrumb.label}
-                </Typography>
-            )}
+            </Link> {currentBreadcrumbs
+                .filter((item) => item.path !== "/")
+                .map((item) => (
+                    <Link
+                        key={item.path}
+                        component={RouterLink}
+                        to={item.path}
+                        underline="none"
+                        color="inherit"
+                    >
+                        {item.label}
+                    </Link>
+                ))}
+
         </Breadcrumbs>
     );
 };
-
 export default AppBreadcrumb;
