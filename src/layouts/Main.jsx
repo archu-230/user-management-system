@@ -64,7 +64,7 @@ const MainLayout = () => {
 
                 <Box
                     sx={{
-                        p: 2,
+                        p: 1,
                     }}
                 >
                     <Outlet />
