@@ -1,39 +1,46 @@
 import { Box, Breadcrumbs, Divider, Link, Typography } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import HomeIcon from "@mui/icons-material/Home";
+
 import { Link as RouterLink, useLocation, matchPath } from "react-router-dom";
 
 import config from "./config";
 
-export default function AppBreadcrumb() {
-  const { pathname } = useLocation();
+const AppBreadcrumb = () => {
 
-  const currentBreadcrumb = config.breadcrumbs.find((item) =>
-    matchPath({ path: item.path, end: true }, pathname)
-  );
+    const { pathname } = useLocation();
 
-  return (
-    <Box sx={{ width: "100%" }}>
-      <Breadcrumbs
-        separator={<ChevronRightIcon fontSize="small" />}
-        sx={{ py: 1,mt:1,ml:1 }}
-      >
-        <Link
-          component={RouterLink}
-          underline="hover"
-          color="inherit"
-          to="/"
-        >
-          🏠 Home
-        </Link>
+    const currentBreadcrumbs = config.breadcrumbs
+        .filter((item) =>
+            matchPath({ path: item.path, end: false }, pathname)
+        );
 
-        {currentBreadcrumb && pathname !== "/" && (
-          <Typography color="text.primary">
-            {currentBreadcrumb.label}
-          </Typography>
-        )}
-      </Breadcrumbs>
+    return (
+        <Breadcrumbs
+            separator={<ChevronRightIcon fontSize="small" />} sx={{ p: 2 }} >
 
-      <Divider sx={{ width: "100%" }} />
-    </Box>
-  );
-}
+            <Link
+                component={RouterLink}
+                to="/" underline="none"
+                color="inherit"
+                sx={{ display: "flex", alignItems: "center", }} >
+                <HomeIcon fontSize="small" />
+
+            </Link> {currentBreadcrumbs
+                .filter((item) => item.path !== "/")
+                .map((item) => (
+                    <Link
+                        key={item.path}
+                        component={RouterLink}
+                        to={item.path}
+                        underline="none"
+                        color="inherit"
+                    >
+                        {item.label}
+                    </Link>
+                ))}
+
+        </Breadcrumbs>
+    );
+};
+export default AppBreadcrumb;

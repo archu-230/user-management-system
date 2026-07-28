@@ -1,7 +1,4 @@
-import { Toolbar } from "@mui/material";
-
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import { RouterProvider } from "react-router-dom";
 
 import MUIProvider from "./providers/MUI";
 import AppDrawer from "./components/app-drawer";
@@ -12,13 +9,11 @@ import AppRouter from "./routes";
 
 const App = () => {
 
-  const [open, setOpen] = useState(false);
-
   return (
       <MUIProvider>
        <AppRouter/>
       </MUIProvider>
   );
-}
+};
 
 export default App;
