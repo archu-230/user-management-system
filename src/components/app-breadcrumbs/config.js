@@ -20,6 +20,7 @@ const productsBreadcrumbs = [
 
 const profileBreadcrumbs = [
     { path: "/profile", label: "Profile" },
+    {path:"/profile/edit",label:"edit"}
 ];
 
 const breadcrumbs = [
