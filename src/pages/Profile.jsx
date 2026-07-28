@@ -8,16 +8,14 @@ import {
   Typography,
 } from "@mui/material";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
+  
+  const navigate=useNavigate();
+  
   return (
-    <Box
-      sx={{
-        p: { xs: 1.5, sm: 3 },
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
+    <Box sx={{ display: "flex", justifyContent: "flex-start" }}>
       <Paper
         elevation={2}
         sx={{
@@ -45,7 +43,11 @@ export default function Profile() {
             </Avatar>
 
             <Box sx={{ flexGrow: 1, minWidth: 0 }}>
-              <Typography variant="h5" fontWeight={600} sx={{ fontSize: { xs: 20, sm: 24 } }}>
+              <Typography
+                variant="h5"
+                fontWeight={600}
+                sx={{ fontSize: { xs: 20, sm: 24 } }}
+              >
                 User Name
               </Typography>
 
@@ -63,6 +65,7 @@ export default function Profile() {
             <Button
               variant="outlined"
               startIcon={<EditOutlinedIcon />}
+              onClick={()=>navigate("/profile/edit")}
               sx={{ width: { xs: "100%", sm: "auto" } }}
             >
               Edit
