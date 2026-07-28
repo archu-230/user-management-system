@@ -15,7 +15,7 @@ export default function Profile() {
   return (
     <Box
       sx={{
-        p: { xs: 1.5, sm: 3 },
+        p: 1,
       }}
     >
       <Paper
