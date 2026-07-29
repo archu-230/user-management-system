@@ -3,6 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/Main";
 import Profile from "../pages/Profile";
 import EditUser from "../pages/Edit-User";
+import Users from "../pages/users";
+import ProductList from "../pages/products";
 const routes = [
     {
         path: "/",
@@ -19,7 +21,20 @@ const routes = [
             {
                 path: "profile/edit",
                 element: <EditUser />
-            }
+            },
+            {
+                path:"users",
+                element:<Users/>,
+                
+            },
+            {
+                path:"products",
+                element:<ProductList/>
+            },
+             {
+                        path:"users/add-user",
+                        element:<>Implement Later</>
+                    }
         ],
     },
 ];
