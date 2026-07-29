@@ -20,7 +20,7 @@ const productsBreadcrumbs = [
 
 const profileBreadcrumbs = [
     { path: "/profile", label: "Profile" },
-    {path:"/profile/edit",label:"edit"}
+    { path: "/profile/edit", label: "edit" }
 ];
 
 const breadcrumbs = [
@@ -32,15 +32,6 @@ const breadcrumbs = [
 ];
 
 
-const config = {
-    breadcrumbs,
-    config: {
-        home: homeBreadcrumbs,
-        dashboard: dashboardBreadcrumbs,
-        users: usersBreadcrumbs,
-        products: productsBreadcrumbs,
-        profile: profileBreadcrumbs,
-    },
-};
+const config = { breadcrumbs, };
 
 export default config;
