@@ -1,4 +1,4 @@
-import { Drawer, Typography } from "@mui/material";
+import { Drawer } from "@mui/material";
 
 export default function AppDrawer({ open }) {
 
