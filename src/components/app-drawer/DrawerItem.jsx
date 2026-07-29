@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useTheme } from "@emotion/react";
 import {
     Box,
     Collapse,
@@ -7,6 +8,7 @@ import {
     ListItemButton,
     ListItemIcon,
     ListItemText,
+    useTheme,
 } from "@mui/material";
 
 import {
@@ -15,6 +17,7 @@ import {
 } from "@mui/icons-material";
 export default function DrawerItem({ item, level = 0 }) {
 
+    const theme = useTheme();
     const location = useLocation();
     const [open, setOpen] = useState(true);
     const hasChildren = item.children && item.children.length > 0;
@@ -59,10 +62,13 @@ export default function DrawerItem({ item, level = 0 }) {
                     </ListItemIcon>
                 )}
 
-                <ListItemText primary={item.title} sx={{
-                    color:"#000",
-                    fontWeight:700
-                }}/>
+                <ListItemText
+                    primary={item.title}
+                    sx={{
+                        color: theme.palette.mode === "light" ? "#000" : "#fff",
+                        fontWeight: 700,
+                    }}
+                />
             </ListItemButton>
 
             {hasChildren && (
