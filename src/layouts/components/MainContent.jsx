@@ -6,14 +6,14 @@ const MainContent = ({ open, children }) => {
             component="main"
             sx={{
                 minHeight: "100vh",
-                pt: 8,
+                pt: "104px",
                 ml: open ? "260px" : 0,
 
                 width: open
                     ? "calc(100% - 260px)"
                     : "100%",
 
-                transition: "margin-left 0.3s ease, width 0.3s ease",
+                transition: "0.3s",
             }}
         >
             {children}
