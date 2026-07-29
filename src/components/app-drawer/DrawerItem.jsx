@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { useTheme } from "@emotion/react";
 import {
     Box,
     Collapse,
