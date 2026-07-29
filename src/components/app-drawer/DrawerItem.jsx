@@ -1,88 +1,76 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
-import {
-    Box,
-    Collapse,
-    List,
-    ListItemButton,
-    ListItemIcon,
-    ListItemText,
-    useTheme,
-} from "@mui/material";
+import { Box, ListItemIcon, ListItemText, useTheme } from "@mui/material";
+import { TreeItem } from "@mui/x-tree-view/TreeItem";
 
-import {
-    ExpandLess,
-    ExpandMore,
-} from "@mui/icons-material";
-export default function DrawerItem({ item, level = 0 }) {
-
+export default function DrawerItem({ item }) {
     const theme = useTheme();
     const location = useLocation();
-    const [open, setOpen] = useState(true);
-    const hasChildren = item.children && item.children.length > 0;
-    const isSelected = item.path === location.pathname;
 
-    const handleClick = () => {
-        if (hasChildren) {
-            setOpen((prev) => !prev);
-        }
-    };
+    const isSelected = location.pathname === item.path;
+    const hasChildren = Boolean(item.children?.length);
 
     return (
-        <>
-            <ListItemButton
-                component={!hasChildren ? Link : "div"}
-                to={!hasChildren ? item.path : undefined}
-                onClick={handleClick}
-                selected={isSelected}
-                sx={{
-                    pl: 2 + level * 1,
-                }}
-            >
+        <TreeItem
+            sx={{
+                color: "text.primary",
+
+                "& .MuiTreeItem-content": {
+                    minHeight: 36,
+                    height: 36,
+                    marginTop: 1,
+                },
+
+                "& .MuiTreeItem-content.Mui-selected": {
+                    backgroundColor: "action.selected",
+                },
+
+                "& .MuiTreeItem-content.Mui-selected:hover": {
+                    backgroundColor: "action.hover",
+                },
+            }}
+            itemId={item.id}
+            label={
                 <Box
+                    component={!hasChildren ? Link : "div"}
+                    to={!hasChildren ? item.path : undefined}
                     sx={{
-                        width: 24,
                         display: "flex",
-                        justifyContent: "center",
-                        mr: 1,
+                        alignItems: "center",
+                        width: "100%",
+                        height: 36,
+                        px: 1,
+                        borderRadius: 1,
+                        textDecoration: "none",
+                        color: "inherit",
                     }}
                 >
-                    {hasChildren &&
-                        (open ? <ExpandLess /> : <ExpandMore />)}
-                </Box>
+                    {item.icon && (
+                        <ListItemIcon
+                            sx={{
+                                minWidth: 36,
+                                color: "inherit",
+                            }}
+                        >
+                            {item.icon}
+                        </ListItemIcon>
+                    )}
 
-                {item.icon && (
-                    <ListItemIcon
-                        sx={{
-                            minWidth: 30,
+                    <ListItemText
+                        primary={item.title}
+                        primaryTypographyProps={{
+                            fontWeight: isSelected ? 700 : 500,
                         }}
-                    >
-                        {item.icon}
-                    </ListItemIcon>
-                )}
-
-                <ListItemText
-                    primary={item.title}
-                    sx={{
-                        color: theme.palette.mode === "light" ? "#000" : "#fff",
-                        fontWeight: 700,
-                    }}
-                />
-            </ListItemButton>
-
-            {hasChildren && (
-                <Collapse in={open} timeout="auto" unmountOnExit>
-                    <List disablePadding>
-                        {item.children.map((child) => (
-                            <DrawerItem
-                                key={child.id}
-                                item={child}
-                                level={level + 1}
-                            />
-                        ))}
-                    </List>
-                </Collapse>
-            )}
-        </>
+                    />
+                </Box>
+            }
+        >
+            {hasChildren &&
+                item.children.map((child) => (
+                    <DrawerItem
+                        key={child.id}
+                        item={child}
+                    />
+                ))}
+        </TreeItem>
     );
 }
