@@ -9,7 +9,7 @@ import { Link as RouterLink, useLocation, matchPath } from "react-router-dom";
 
 import config from "./config";
 
-const AppBreadcrumb = () => {
+const AppBreadcrumb = ({ open }) => {
 
     const { pathname } = useLocation();
 
@@ -27,16 +27,19 @@ const AppBreadcrumb = () => {
     return (
         <Box
             sx={{
-                position: "sticky",
-                top: 0,
+                position: "fixed",
+                top: 64,
+                left: open ? "260px" : 0,
+                width: open ? "calc(100% - 260px)" : "100%",
+                height: 40,
                 zIndex: 10,
-                height: 25,
                 display: "flex",
                 alignItems: "center",
-                backgroundColor: "background.paper",
+                px: 2,
+                bgcolor: "background.paper",
                 borderBottom: "1px solid",
                 borderColor: "divider",
-                px: 2,
+                transition: "left 0.3s ease, width 0.3s ease",
             }}
         >
             <Breadcrumbs
