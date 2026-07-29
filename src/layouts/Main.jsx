@@ -21,7 +21,7 @@ const MainLayout = () => {
 
             <MainContent open={open}>
 
-                <AppBreadcrumb />
+                <AppBreadcrumb open={open} />
 
                 <Box sx={{ p: 1 }}>
                     <Outlet />
