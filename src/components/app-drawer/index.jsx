@@ -1,9 +1,12 @@
-import { Drawer } from "@mui/material";
+
+import { Drawer, Toolbar, List } from "@mui/material";
+import { navigation } from "./config";
+import DrawerItem from "./DrawerItem";
+
+
 
 export default function AppDrawer({ open }) {
-
   return (
-
     <Drawer
       open={open}
       variant="persistent"
@@ -15,7 +18,17 @@ export default function AppDrawer({ open }) {
           },
         },
       }}
-    />
+    >
+      <Toolbar />
 
+      <List disablePadding>
+        {navigation.map((item) => (
+          <DrawerItem
+            key={item.id}
+            item={item}
+          />
+        ))}
+      </List>
+    </Drawer>
   );
 }
