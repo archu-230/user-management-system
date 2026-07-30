@@ -6,7 +6,7 @@ import { Box, Button } from "@mui/material";
 
 import DataGrid from "../../components/data-grid";
 import { columns } from "./config";
-import CreateUserDialog from "./Create-user-dialog";
+import CreateUserDialog from "./components/Create-user-dialog";
 
 export default function Users() {
   const [open, setOpen] = useState(false);
