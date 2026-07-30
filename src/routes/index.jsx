@@ -1,10 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
-import Login from "../pages/login/LoginForm"
-import MainLayout from "../layouts/Main";
+
+
 import Profile from "../pages/Profile";
 import EditUser from "../pages/Edit-User";
-import Table from "../components/table/Table";
-import Form from "../pages/form/Form"
+import Users from "../pages/users";
+import ProductList from "../pages/products";
+import MainLayout from "../components/layouts/Main";
+import Form from "../pages/form/Form";
+
 const routes = [
     {
         path: "/",
@@ -24,12 +27,17 @@ const routes = [
                 element: <EditUser />
             },
             {
-                path:"t",
-                element:<Table />,
+                path: "users",
+                element: <Users />,
+
             },
             {
-                path:"t/form",
-                element:<Form />
+                path: "products",
+                element: <ProductList />
+            },
+            {
+                path: "users/add-user",
+                element:<Form />,
             }
 
         ],
