@@ -36,7 +36,7 @@ const routes = [
                 element: <ProductList />
             },
             {
-                path: "users/add-user",
+                path: "/add-user",
                 element:<Form />,
             }
 

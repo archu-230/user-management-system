@@ -1,28 +1,64 @@
-import TextField from "../../components/textfiled/TextField";
-import { Stack  } from "@mui/material";
-import Button from "../../components/button/Button";
+import { Stack } from "@mui/material";
 import { useState } from "react";
+import TextField from "../../components/textfiled/TextField";
+import Button from "../../components/button/Button";
 
+export default function UserForm({ onSubmit }) {
+  const [rows, setRows] = useState({
+    name: "",
+    email: "",
+    password:"",
+  });
 
-const handleSubmit = ()=> {
-    console.log(rows);
-    return rows;
-}
+  const handleSubmit = () => {
+    // Pass the form data up to the parent component
+    if (onSubmit) {
+      onSubmit(rows);
+    }
+    console.log("Submitted Data:", rows);
 
-export default function userForm(){
-const [rows,setrows] =useState({
-    name:"",
-    email:""
-});
-return(<>
-<Stack spacing={2} sx={{display:"flex",alignItems:"center",m:2,justifyContent:"center"}}>
+    // Optional: Reset form fields after submission
+    setRows({ name: "", email: "" });
+  };
 
-<TextField label="Enter your name" value={rows.name} onChange={(e)=>setrows({...rows,name:e.target.value,})} />
-<TextField label="Enter your mail"  value={rows.email} onChange={(e)=>setrows({...rows,email:e.target.value})}/>
-<TextField label ="Enter your password" />
+  return (
+    <Stack spacing={2} sx={{ alignItems: "center", m: 2 }}>
+      <TextField
+        label="Enter your name"
+        value={rows.name}
+        onChange={(e) =>
+          setRows({
+            ...rows,
+            name: e.target.value,
+          })
+        }
+      />
 
-<Button text={"submit"} onClick={handleSubmit} />
-</Stack>
+      <TextField
+        label="Enter your mail"
+        value={rows.email}
+        onChange={(e) =>
+          setRows({
+            ...rows,
+            email: e.target.value,
+          })
+        }
+      />
 
-</>);
+<TextField type={"password"}
+        label="Enter your password"
+        value={rows.password}
+        onChange={(e) =>
+          setRows({
+            ...rows,
+            password: e.target.value,
+          })
+        }
+      />
+      <Button
+        text="Submit"
+        onClick={handleSubmit}
+      />
+    </Stack>
+  );
 }

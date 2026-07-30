@@ -3,8 +3,13 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, Button } from "@mui/material";
 import DataGrid from "../../components/data-grid";
 import { columns, rows } from "./config";
+import { useNavigate } from "react-router-dom";
+
+
 
 export default function Users() {
+const navigate =useNavigate();
+
   return (
     <Box
       sx={{
@@ -26,7 +31,7 @@ export default function Users() {
         <Button
           variant="outlined"
           startIcon={<AddIcon />}
-          sx={{ textTransform: "none" }}
+          sx={{ textTransform: "none" }} onClick={()=>navigate("/add-user")}
         >
           New
         </Button>
