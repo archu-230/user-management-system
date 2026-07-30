@@ -1,7 +1,7 @@
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, Button } from "@mui/material";
-import DataGrid from "../../components/data-grid";
+import DataTable from "../../components/data-table";
 import { columns, rows } from "./config";
 
 export default function Users() {
@@ -42,7 +42,7 @@ export default function Users() {
         </Button>
       </Box>
 
-      <DataGrid rows={rows} columns={columns} checkbox={true}/>
+      <DataTable rows={rows} columns={columns} checkbox={true}/>
     </Box>
   );
 }
