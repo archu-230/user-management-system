@@ -9,8 +9,8 @@ const dashboardBreadcrumbs = [
 
 const usersBreadcrumbs = [
     { path: "/users", label: "Users" },
-    { path: "/users/:id", label: "User Details" },
     { path: "/users/:id/edit", label: "Edit User" },
+    { path:"/users/add-user",label:"Add-User"}
 ];
 
 const productsBreadcrumbs = [
