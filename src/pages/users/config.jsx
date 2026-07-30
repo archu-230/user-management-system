@@ -24,13 +24,7 @@ export const columns = [
     align: "center",
     headerAlign: "center",
   },
-  {
-    field: "phone",
-    headerName: "Phone",
-    width: 150,
-    align: "center",
-    headerAlign: "center",
-  },
+ 
   {
     field: "actions",
     headerName: "Actions",
@@ -56,32 +50,5 @@ export const columns = [
         </IconButton>
       </>
     ),
-  },
-];
-
-export const rows = [
-  {
-    id: 1,
-    name: "Vijay",
-    email: "vijay@gmail.com",
-    phone: "9876543210",
-  },
-  {
-    id: 2,
-    name: "Rahul",
-    email: "rahul@gmail.com",
-    phone: "9123456789",
-  },
-  {
-    id: 3,
-    name: "Arun",
-    email: "arun@gmail.com",
-    phone: "9988776655",
-  },
-  {
-    id: 4,
-    name: "Kumar",
-    email: "kumar@gmail.com",
-    phone: "9871234567",
   },
 ];
