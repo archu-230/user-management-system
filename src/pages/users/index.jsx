@@ -42,7 +42,7 @@ export default function Users() {
         </Button>
       </Box>
 
-      <DataTable rows={rows} columns={columns} checkbox={true}/>
+      <DataTable rows={rows} columns={columns} />
     </Box>
   );
 }
