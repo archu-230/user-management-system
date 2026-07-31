@@ -8,10 +8,6 @@ export const USER_VALIDATION = {
     EMAIL_REQUIRED: "Email is required",
     EMAIL_INVALID: "Enter a valid email address",
 
-
-    PASSWORD_REQUIRED: "Password is required",
-    PASSWORD_MIN: "Password must contain minimum 8 characters",
-    PASSWORD_MAX: "Password must not exceed 15 characters",
     PASSWORD_REQUIRED: "Password is required",
     PASSWORD_MIN: "Password must contain minimum 8 characters",
     PASSWORD_MAX: "Password must not exceed 15 characters",
