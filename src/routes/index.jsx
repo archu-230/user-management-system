@@ -4,9 +4,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Profile from "../pages/Profile";
 import EditUser from "../pages/Edit-User";
 import Users from "../pages/users";
-import ProductList from "../pages/products";
+// import ProductList from "../pages/products";
 import MainLayout from "../components/layouts/Main";
-import Form from "../pages/form/Form";
+// import Form from "../pages/form/Form";
 
 const routes = [
     {
@@ -31,14 +31,14 @@ const routes = [
                 element: <Users />,
 
             },
-            {
-                path: "products",
-                element: <ProductList />
-            },
-            {
-                path: "/add-user",
-                element:<Form />,
-            }
+            // {
+            //     path: "products",
+            //     element: <ProductList />
+            // },
+            // {
+            //     path: "/add-user",
+            //     element:<Form />,
+            // }
 
         ],
     },
