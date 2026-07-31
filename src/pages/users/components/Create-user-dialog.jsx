@@ -10,19 +10,22 @@ import {
   Box,
   IconButton,
   Stack,
-  Typography,
   Avatar
 } from "@mui/material";
 
 import { userSchema } from "../../../libs/schemas/user.schema";
 import { CloudUpload, Image } from "@mui/icons-material";
 import user from "../../../assets/user.png";
+// import file from "./file";
+
 export default function CreateUserDialog({ open, onClose, onSave }) {
-  const [userData, setUserData] = useState({
+  
+    const [userData, setUserData] = useState({
     name: "",
     email: "",
     password: "",
     file: null,
+    preview:"",
   });
   const fileInputRef = useRef(null);
   
@@ -39,9 +42,9 @@ export default function CreateUserDialog({ open, onClose, onSave }) {
       name: "",
       email: "",
       password: "",
-      file: null,
+      preview:"",
     });
-setPreview(null);
+    setPreview(null);
     setErrors({
       name: "",
       email: "",
@@ -63,7 +66,14 @@ setPreview(null);
 
   // If a file was selected, create a preview
   if (name === "file" && files?.[0]) {
-    setPreview(URL.createObjectURL(files[0]));
+    const previewUrl =URL.createObjectURL(files[0])
+    setPreview(previewUrl);
+
+    setUserData((prev) => ({
+    ...prev,
+    file: files[0],
+    preview: previewUrl,
+  }));
     return;
   }
 
@@ -156,6 +166,7 @@ setPreview(null);
               }}
             />
           </IconButton>
+          {userData.name}
         </Stack>
         <input
           ref={fileInputRef}

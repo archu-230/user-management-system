@@ -1,7 +1,7 @@
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { IconButton } from "@mui/material";
-
+import { IconButton,Avatar } from "@mui/material";
+import user from "../../assets/user.png"
 export const columns = [
   {
     field: "id",
@@ -13,9 +13,13 @@ export const columns = [
   {
     field:"profile",
     headerName:"Profile",
-    flex:1,
+    flex:0.3,
     align:"center",
-    headerAlign:"center"
+    headerAlign:"center",
+    justifyContent:"center",
+    display:"flex",
+    alignItems:"center",
+    renderCell: (params)=>(<Avatar src={params.value||user}/>),
  },
   {
     field: "name",
