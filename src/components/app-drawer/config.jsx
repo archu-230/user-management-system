@@ -1,18 +1,21 @@
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import EditIcon from "@mui/icons-material/Edit";
+import { HOME, USERS } from "../../constants/route";
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 
 export const navigation = [
     {
-        id: "profile",
-        title: "Profile",
-        icon: <AccountCircleOutlinedIcon />,
-        path: "/profile",
+        id: "home",
+        title: "Home",
+        icon: <HomeOutlinedIcon />,
+        path: HOME.ROOT,
         children: [
             {
-                id: "edit-profile",
-                title: "Edit Profile",
-                icon: <EditIcon />,
-                path: "/profile/edit",
+                id: "users",
+                title: "Users",
+                icon: <GroupsOutlinedIcon />,
+                path: USERS.ROOT,
             },
             
         ]
