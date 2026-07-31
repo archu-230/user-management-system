@@ -16,17 +16,12 @@ const MainLayout = () => {
     return (
         <>
             <AppBar onClickMenu={() => setOpen(!open)} />
-
             <AppDrawer open={open} />
-
             <MainContainer open={open}>
-
                 <AppBreadcrumb open={open} />
-
                 <Box sx={{ p: 1 }}>
                     <Outlet />
                 </Box>
-
             </MainContainer>
 
         </>
