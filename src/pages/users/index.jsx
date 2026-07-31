@@ -4,10 +4,10 @@ import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, Button } from "@mui/material";
 
-import DataGrid from "../../components/data-grid";
+// import DataGrid from "../../components/data-grid";
 import { columns } from "./config";
 import CreateUserDialog from "./components/Create-user-dialog";
-import DataTable from "../../components/data-table";
+import DataTable from "../../components/data-table/index";
 
 export default function Users() {
   const [open, setOpen] = useState(false);
@@ -26,6 +26,7 @@ export default function Users() {
       id: rows.length + 1,
       name: user.name,
       email: user.email,
+      file:user.file
     };
 
     setRows((prev) => [...prev, newUser]);
