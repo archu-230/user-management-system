@@ -14,6 +14,7 @@ const routes = [
         children: [
             {
                 index: true,
+                path:"/",
                 element: <></>,
             },
             {
@@ -33,6 +34,7 @@ const routes = [
                 path: "users/add-user",
                 element: <>Implement Later</>
             }
+
         ],
     },
 ];
