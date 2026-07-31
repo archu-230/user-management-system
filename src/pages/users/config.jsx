@@ -42,6 +42,7 @@ export const columns = [
     field: "actions",
     headerName: "Actions",
     width: 120,
+    flex:1,
     sortable: false,
     filterable: false,
     align: "center",
