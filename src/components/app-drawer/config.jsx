@@ -10,12 +10,14 @@ export const navigation = [
         title: "Home",
         icon: <HomeOutlinedIcon />,
         path: HOME.ROOT,
+        role:["USER"],
         children: [
             {
                 id: "users",
                 title: "Users",
                 icon: <GroupsOutlinedIcon />,
                 path: USERS.ROOT,
+                role:["USER"]
             },
             
         ]

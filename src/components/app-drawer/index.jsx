@@ -1,17 +1,16 @@
-
 import { Drawer, Toolbar } from "@mui/material";
 import { navigation } from "./config";
 import DrawerItem from "./DrawerItem";
 import { SimpleTreeView } from "@mui/x-tree-view";
 
 export default function AppDrawer({ open }) {
-  
+
   const getDefaultExpandedItems = (items) => {
     return items
       .filter((item) => item.children?.length)
       .map((item) => item.id);
   };
-  
+
   return (
     <Drawer
       open={open}
