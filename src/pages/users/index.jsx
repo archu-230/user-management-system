@@ -3,6 +3,7 @@ import { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, Button } from "@mui/material";
+import userImage from "../../assets/user.png";
 import { columns } from "./config";
 import CreateUserDialog from "./components/Create-user-dialog";
 import DataTable from "../../components/data-table/index";
@@ -24,7 +25,9 @@ export default function Users() {
       id: rows.length + 1,
       name: user.name,
       email: user.email,
-      file:user.file
+      profile: user.preview,
+      file: user.file
+
     };
 
     setRows((prev) => [...prev, newUser]);

@@ -10,19 +10,21 @@ import {
   Box,
   IconButton,
   Stack,
-  Typography,
   Avatar
 } from "@mui/material";
 
 import { userSchema } from "../../../libs/validators/users.schema";
 import { CloudUpload, Image } from "@mui/icons-material";
 import user from "../../../assets/user.png";
+
 export default function CreateUserDialog({ open, onClose, onSave }) {
-  const [userData, setUserData] = useState({
+  
+    const [userData, setUserData] = useState({
     name: "",
     email: "",
     password: "",
     file: null,
+    preview:"",
   });
   const fileInputRef = useRef(null);
 
@@ -39,7 +41,7 @@ export default function CreateUserDialog({ open, onClose, onSave }) {
       name: "",
       email: "",
       password: "",
-      file: null,
+      preview:"",
     });
     setPreview(null);
     setErrors({
@@ -61,11 +63,18 @@ export default function CreateUserDialog({ open, onClose, onSave }) {
       [name]: inputValue,
     }));
 
-    // If a file was selected, create a preview
-    if (name === "file" && files?.[0]) {
-      setPreview(URL.createObjectURL(files[0]));
-      return;
-    }
+  // If a file was selected, create a preview
+  if (name === "file" && files?.[0]) {
+    const previewUrl =URL.createObjectURL(files[0])
+    setPreview(previewUrl);
+
+    setUserData((prev) => ({
+    ...prev,
+    file: files[0],
+    preview: previewUrl,
+  }));
+    return;
+  }
 
     const result = userSchema.shape[name].safeParse(value);
 
@@ -156,6 +165,7 @@ export default function CreateUserDialog({ open, onClose, onSave }) {
               }}
             />
           </IconButton>
+          {userData.name}
         </Stack>
         <input
           ref={fileInputRef}
