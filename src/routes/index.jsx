@@ -1,15 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 
-
+import {HOME} from "../constants/route"
 import Profile from "../pages/Profile";
 import EditUser from "../pages/Edit-User";
 import Users from "../pages/users";
-import ProductList from "../pages/products";
 import MainLayout from "../components/layouts/Main";
+import {USERS} from "../constants/route"
 
 const routes = [
     {
-        path: "/",
+        path: HOME.ROOT,
         element: <MainLayout />,
         children: [
             {
@@ -25,13 +25,9 @@ const routes = [
                 element: <EditUser />
             },
             {
-                path: "users",
+                path: USERS.ROOT,
                 element: <Users />,
 
-            },
-            {
-                path: "products",
-                element: <ProductList />
             },
             {
                 path: "users/add-user",
