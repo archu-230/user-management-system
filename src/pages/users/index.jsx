@@ -7,6 +7,7 @@ import { Box, Button } from "@mui/material";
 import DataGrid from "../../components/data-grid";
 import { columns } from "./config";
 import CreateUserDialog from "./components/Create-user-dialog";
+import DataTable from "../../components/data-table";
 
 export default function Users() {
   const [open, setOpen] = useState(false);
@@ -69,11 +70,7 @@ export default function Users() {
         </Button>
       </Box>
 
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        checkbox
-      />
+      <DataTable rows={rows} columns={columns} />
 
       <CreateUserDialog
         open={open}
