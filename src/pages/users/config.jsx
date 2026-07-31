@@ -11,6 +11,13 @@ export const columns = [
     headerAlign: "center",
   },
   {
+    field:"profile",
+    headerName:"Profile",
+    flex:1,
+    align:"center",
+    headerAlign:"center"
+ },
+  {
     field: "name",
     headerName: "Name",
     flex: 1,
@@ -24,7 +31,7 @@ export const columns = [
     align: "center",
     headerAlign: "center",
   },
- 
+  
   {
     field: "actions",
     headerName: "Actions",
