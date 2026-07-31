@@ -1,5 +1,7 @@
+import { HOME, USERS } from "../../constants/route";
+
 const homeBreadcrumbs = [
-    { path: "/", label: "Home" },
+    { path: HOME.ROOT, label: "Home" },
 ];
 
 const dashboardBreadcrumbs = [
@@ -8,7 +10,7 @@ const dashboardBreadcrumbs = [
 ];
 
 const usersBreadcrumbs = [
-    { path: "/users", label: "Users" },
+    { path: USERS.ROOT, label: "Users" },
     { path: "/users/:id/edit", label: "Edit User" },
     { path:"/users/add-user",label:"Add-User"}
 ];

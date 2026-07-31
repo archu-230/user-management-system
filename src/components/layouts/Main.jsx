@@ -11,7 +11,7 @@ import MainContainer from "../MainContainer";
 
 const MainLayout = () => {
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     return (
         <>

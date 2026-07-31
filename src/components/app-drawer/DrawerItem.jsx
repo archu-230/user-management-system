@@ -57,8 +57,10 @@ export default function DrawerItem({ item }) {
 
                     <ListItemText
                         primary={item.title}
-                        primaryTypographyProps={{
-                            fontWeight: isSelected ? 700 : 500,
+                        slotProps={{
+                            primary: {
+                                fontWeight: isSelected ? 700 : 500,
+                            },
                         }}
                     />
                 </Box>

@@ -2,6 +2,9 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { IconButton,Avatar } from "@mui/material";
 import user from "../../assets/user.png"
+import { IconButton } from "@mui/material";
+import BlockIcon from "@mui/icons-material/Block"
+
 export const columns = [
   {
     field: "id",
@@ -35,7 +38,7 @@ export const columns = [
     align: "center",
     headerAlign: "center",
   },
-  
+
   {
     field: "actions",
     headerName: "Actions",
@@ -59,6 +62,13 @@ export const columns = [
         >
           <DeleteIcon />
         </IconButton>
+        <IconButton
+          color="warning"
+          onClick={() => console.log("Block", params.row)}
+        >
+          <BlockIcon />
+        </IconButton>
+
       </>
     ),
   },
