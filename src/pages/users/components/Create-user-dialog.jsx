@@ -13,7 +13,7 @@ import {
   Avatar
 } from "@mui/material";
 
-import { userSchema } from "../../../libs/schemas/user.schema";
+import { userSchema } from "../../../libs/validators/users.schema";
 import { CloudUpload, Image } from "@mui/icons-material";
 import user from "../../../assets/user.png";
 
@@ -27,9 +27,9 @@ export default function CreateUserDialog({ open, onClose, onSave }) {
     preview:"",
   });
   const fileInputRef = useRef(null);
-  
-  const [preview,setPreview] =useState();
-  
+
+  const [preview, setPreview] = useState();
+
   const [errors, setErrors] = useState({
     name: "",
     email: "",
@@ -54,14 +54,14 @@ export default function CreateUserDialog({ open, onClose, onSave }) {
   };
 
   const handleChange = (event) => {
-  const { name, value, files } = event.target;
+    const { name, value, files } = event.target;
 
-  const inputValue = files ? files[0] : value;
+    const inputValue = files ? files[0] : value;
 
-  setUserData((prev) => ({
-    ...prev,
-    [name]: inputValue,
-  }));
+    setUserData((prev) => ({
+      ...prev,
+      [name]: inputValue,
+    }));
 
   // If a file was selected, create a preview
   if (name === "file" && files?.[0]) {
@@ -76,13 +76,13 @@ export default function CreateUserDialog({ open, onClose, onSave }) {
     return;
   }
 
-  const result = userSchema.shape[name].safeParse(value);
+    const result = userSchema.shape[name].safeParse(value);
 
-  setErrors((prev) => ({
-    ...prev,
-    [name]: result.success ? "" : result.error.issues[0].message,
-  }));
-};
+    setErrors((prev) => ({
+      ...prev,
+      [name]: result.success ? "" : result.error.issues[0].message,
+    }));
+  };
 
   const handleSave = () => {
     const result = userSchema.safeParse(userData);
@@ -150,7 +150,7 @@ export default function CreateUserDialog({ open, onClose, onSave }) {
           <IconButton onClick={() => fileInputRef.current.click()}>
             <Box
               component={"img"}
-              src={preview||user}
+              src={preview || user}
               alt="image"
               sx={{
                 fontSize: 13,

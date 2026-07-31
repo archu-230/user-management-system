@@ -1,8 +1,7 @@
 import { z } from "zod";
 import { USER_VALIDATION } from "../../constants/messages/user-validation";
 
-
-export const nameRule = z
+const nameRule = z
     .string({ required_error: USER_VALIDATION.NAME_REQUIRED })
     .trim()
     .min(3, USER_VALIDATION.NAME_MIN)
@@ -11,13 +10,12 @@ export const nameRule = z
         message: USER_VALIDATION.NAME_FIRST_LETTER,
     });
 
-export const emailRule = z
-    .string({ required_error: USER_VALIDATION.EMAIL_REQUIRED, })
+const emailRule = z
+    .string({ required_error: USER_VALIDATION.EMAIL_REQUIRED })
     .trim()
     .email(USER_VALIDATION.EMAIL_INVALID);
 
-
-export const passwordRule = z
+const passwordRule = z
     .string({ required_error: USER_VALIDATION.PASSWORD_REQUIRED })
     .min(8, USER_VALIDATION.PASSWORD_MIN)
     .max(15, USER_VALIDATION.PASSWORD_MAX)
@@ -33,3 +31,9 @@ export const passwordRule = z
     .refine((password) => /[@$!%*?&#]/.test(password), {
         message: USER_VALIDATION.PASSWORD_SPECIAL,
     });
+
+export const userSchema = z.object({
+    name: nameRule,
+    email: emailRule,
+    password: passwordRule,
+});
