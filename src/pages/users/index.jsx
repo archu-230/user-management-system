@@ -1,14 +1,18 @@
+import { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, Button } from "@mui/material";
 import DataGrid from "../../components/data-grid";
 import { columns, rows } from "./config";
-import { useNavigate } from "react-router-dom";
-
-
+import Form from "../form/Form";
 
 export default function Users() {
-const navigate =useNavigate();
+  const [open, setOpen] = useState(false);
+
+  const handleSubmit = (data) => {
+    console.log(data);
+    // Add data to DataGrid here
+  };
 
   return (
     <Box
@@ -31,7 +35,8 @@ const navigate =useNavigate();
         <Button
           variant="outlined"
           startIcon={<AddIcon />}
-          sx={{ textTransform: "none" }} onClick={()=>navigate("/add-user")}
+          sx={{ textTransform: "none" }}
+          onClick={() => setOpen(true)}
         >
           New
         </Button>
@@ -47,7 +52,17 @@ const navigate =useNavigate();
         </Button>
       </Box>
 
-      <DataGrid rows={rows} columns={columns} checkbox={true}/>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        checkbox={true}
+      />
+
+      <Form
+        open={open}
+        onClose={() => setOpen(false)}
+        onSubmit={handleSubmit}
+      />
     </Box>
   );
 }
