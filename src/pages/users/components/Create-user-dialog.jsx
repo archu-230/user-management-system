@@ -16,7 +16,6 @@ import {
 import { userSchema } from "../../../libs/schemas/user.schema";
 import { CloudUpload, Image } from "@mui/icons-material";
 import user from "../../../assets/user.png";
-// import file from "./file";
 
 export default function CreateUserDialog({ open, onClose, onSave }) {
   
