@@ -1,17 +1,34 @@
 import { useState } from "react";
+
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, Button } from "@mui/material";
+
 import DataGrid from "../../components/data-grid";
-import { columns, rows } from "./config";
-import Form from "../form/Form";
+import { columns } from "./config";
+import CreateUserDialog from "./components/Create-user-dialog";
+import DataTable from "../../components/data-table";
 
 export default function Users() {
   const [open, setOpen] = useState(false);
+  const [rows, setRows] = useState([]);
 
-  const handleSubmit = (data) => {
-    console.log(data);
-    // Add data to DataGrid here
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleAddUser = (user) => {
+    const newUser = {
+      id: rows.length + 1,
+      name: user.name,
+      email: user.email,
+    };
+
+    setRows((prev) => [...prev, newUser]);
   };
 
   return (
@@ -33,10 +50,11 @@ export default function Users() {
         }}
       >
         <Button
+          id="new-user-btn"
           variant="outlined"
           startIcon={<AddIcon />}
           sx={{ textTransform: "none" }}
-          onClick={() => setOpen(true)}
+          onClick={handleOpen}
         >
           New
         </Button>
@@ -52,16 +70,12 @@ export default function Users() {
         </Button>
       </Box>
 
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        checkbox={true}
-      />
+      <DataTable rows={rows} columns={columns} />
 
-      <Form
+      <CreateUserDialog
         open={open}
-        onClose={() => setOpen(false)}
-        onSubmit={handleSubmit}
+        onClose={handleClose}
+        onSave={handleAddUser}
       />
     </Box>
   );
