@@ -6,14 +6,16 @@ import EditUser from "../pages/Edit-User";
 import Users from "../pages/users";
 import ProductList from "../pages/products";
 import MainLayout from "../components/layouts/Main";
+import Form from "../pages/form/Form";
 
 const routes = [
     {
         path: "/",
-        element: <MainLayout />,
+        element:<MainLayout />,
         children: [
             {
                 index: true,
+                path:"/",
                 element: <></>,
             },
             {
@@ -34,9 +36,10 @@ const routes = [
                 element: <ProductList />
             },
             {
-                path: "users/add-user",
-                element: <>Implement Later</>
+                path: "/add-user",
+                element:<Form />,
             }
+
         ],
     },
 ];
