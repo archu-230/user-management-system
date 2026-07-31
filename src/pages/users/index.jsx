@@ -1,10 +1,36 @@
+import { useState } from "react";
+
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, Button } from "@mui/material";
+
+import DataGrid from "../../components/data-grid";
+import { columns } from "./config";
+import CreateUserDialog from "./components/Create-user-dialog";
 import DataTable from "../../components/data-table";
-import { columns, rows } from "./config";
 
 export default function Users() {
+  const [open, setOpen] = useState(false);
+  const [rows, setRows] = useState([]);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleAddUser = (user) => {
+    const newUser = {
+      id: rows.length + 1,
+      name: user.name,
+      email: user.email,
+    };
+
+    setRows((prev) => [...prev, newUser]);
+  };
+
   return (
     <Box
       sx={{
@@ -24,9 +50,11 @@ export default function Users() {
         }}
       >
         <Button
+          id="new-user-btn"
           variant="outlined"
           startIcon={<AddIcon />}
           sx={{ textTransform: "none" }}
+          onClick={handleOpen}
         >
           New
         </Button>
@@ -43,6 +71,12 @@ export default function Users() {
       </Box>
 
       <DataTable rows={rows} columns={columns} />
+
+      <CreateUserDialog
+        open={open}
+        onClose={handleClose}
+        onSave={handleAddUser}
+      />
     </Box>
   );
 }
