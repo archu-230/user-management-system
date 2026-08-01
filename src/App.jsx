@@ -6,7 +6,7 @@ const App = () => {
 
   return (
     <MUIProvider>
-      <RouterProvider router={router} />
+      <RouterProvider router={ router } />
     </MUIProvider>
   );
 };
