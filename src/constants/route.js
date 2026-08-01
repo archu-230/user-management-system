@@ -1,8 +1,8 @@
 
 export const HOME = {
-    ROOT: "/",
+  ROOT: "/",
 };
 
 export const USERS = {
-    ROOT: "/users",
+  ROOT: "/users",
 };

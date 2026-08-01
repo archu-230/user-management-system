@@ -11,23 +11,23 @@ function AppBar({ onClickMenu }) {
   return (
     <MuiAppBar
       position="fixed"
-      sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, height: 64, }}
+      sx={ { zIndex: (theme) => theme.zIndex.drawer + 1, height: 64, } }
     >
-      <Toolbar sx={{ height: 64, }}>
+      <Toolbar sx={ { height: 64, } }>
         <IconButton
-          onClick={onClickMenu}
+          onClick={ onClickMenu }
           edge="start"
           color="inherit"
           aria-label="menu"
-          sx={{ mr: 2 }}
+          sx={ { mr: 2 } }
         >
           <Menu />
         </IconButton>
-        <Typography variant="h6" sx={{ flexGrow: 1, textAlign: "start" , fontWeight:600}}>
+        <Typography variant="h6" sx={ { flexGrow: 1, textAlign: "start", fontWeight:600 } }>
           UMS
         </Typography>
         <ThemeToggleButton />
-        <IconButton color="inherit" onClick={() => navigate("/profile")}>
+        <IconButton color="inherit" onClick={ () => navigate("/profile") }>
           <AccountCircleIcon />
         </IconButton>
       </Toolbar>

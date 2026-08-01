@@ -9,17 +9,15 @@ import {
   TextField,
   Box,
   IconButton,
-  Stack,
-  Avatar
+  Stack
 } from "@mui/material";
 
 import { userSchema } from "../../../libs/validators/users.schema";
-import { CloudUpload, Image } from "@mui/icons-material";
 import user from "../../../assets/user.png";
 
 export default function CreateUserDialog({ open, onClose, onSave }) {
-  
-    const [userData, setUserData] = useState({
+
+  const [ userData, setUserData ] = useState({
     name: "",
     email: "",
     password: "",
@@ -28,9 +26,9 @@ export default function CreateUserDialog({ open, onClose, onSave }) {
   });
   const fileInputRef = useRef(null);
 
-  const [preview, setPreview] = useState();
+  const [ preview, setPreview ] = useState();
 
-  const [errors, setErrors] = useState({
+  const [ errors, setErrors ] = useState({
     name: "",
     email: "",
     password: "",
@@ -63,18 +61,18 @@ export default function CreateUserDialog({ open, onClose, onSave }) {
       [name]: inputValue,
     }));
 
-  // If a file was selected, create a preview
-  if (name === "file" && files?.[0]) {
-    const previewUrl =URL.createObjectURL(files[0])
-    setPreview(previewUrl);
+    // If a file was selected, create a preview
+    if (name === "file" && files?.[0]) {
+      const previewUrl = URL.createObjectURL(files[0]);
+      setPreview(previewUrl);
 
-    setUserData((prev) => ({
-    ...prev,
-    file: files[0],
-    preview: previewUrl,
-  }));
-    return;
-  }
+      setUserData((prev) => ({
+        ...prev,
+        file: files[0],
+        preview: previewUrl,
+      }));
+      return;
+    }
 
     const result = userSchema.shape[name].safeParse(value);
 
@@ -106,24 +104,24 @@ export default function CreateUserDialog({ open, onClose, onSave }) {
 
   return (
     <Dialog
-      open={open}
-      onClose={handleClose}
+      open={ open }
+      onClose={ handleClose }
       fullWidth
       maxWidth="sm"
       disableRestoreFocus
-      slotProps={{
+      slotProps={ {
         transition: {
           onExited: () => {
             document.getElementById("new-user-btn")?.focus();
           },
         },
-      }}
+      } }
     >
       <DialogTitle>Add User</DialogTitle>
 
       <DialogContent>
-        {/* <Box sx={{justifyContent:"center",display:"flex",alignItems:"center"}}> */}
-        {/* <Button  sx={{borderRadius:10}}
+        { /* <Box sx={{justifyContent:"center",display:"flex",alignItems:"center"}}> */ }
+        { /* <Button  sx={{borderRadius:10}}
           component="label"
           role={undefined}
           variant="contained"
@@ -137,22 +135,22 @@ export default function CreateUserDialog({ open, onClose, onSave }) {
             hidden
             onChange={handleChange}
           />
-        </Button> */}
+        </Button> */ }
         <Stack
-          spacing={0}
-          direction={"column"}
-          sx={{
+          spacing={ 0 }
+          direction={ "column" }
+          sx={ {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-          }}
+          } }
         >
-          <IconButton onClick={() => fileInputRef.current.click()}>
+          <IconButton onClick={ () => fileInputRef.current.click() }>
             <Box
-              component={"img"}
-              src={preview || user}
+              component={ "img" }
+              src={ preview || user }
               alt="image"
-              sx={{
+              sx={ {
                 fontSize: 13,
                 width: 100,
                 height: 100,
@@ -162,29 +160,29 @@ export default function CreateUserDialog({ open, onClose, onSave }) {
                 objectPosition: "center",
                 textAlign: "center",
                 display: "flex",
-              }}
+              } }
             />
           </IconButton>
-          {userData.name}
+          { userData.name }
         </Stack>
         <input
-          ref={fileInputRef}
+          ref={ fileInputRef }
           name="file"
           type="file"
           hidden
-          onChange={handleChange}
+          onChange={ handleChange }
         />
-        {/* </Box> */}
+        { /* </Box> */ }
         <TextField
           fullWidth
           autoFocus
           margin="normal"
           label="Name"
           name="name"
-          value={userData.name}
-          onChange={handleChange}
-          error={Boolean(errors.name)}
-          helperText={errors.name}
+          value={ userData.name }
+          onChange={ handleChange }
+          error={ Boolean(errors.name) }
+          helperText={ errors.name }
         />
 
         <TextField
@@ -192,10 +190,10 @@ export default function CreateUserDialog({ open, onClose, onSave }) {
           margin="normal"
           label="Email"
           name="email"
-          value={userData.email}
-          onChange={handleChange}
-          error={Boolean(errors.email)}
-          helperText={errors.email}
+          value={ userData.email }
+          onChange={ handleChange }
+          error={ Boolean(errors.email) }
+          helperText={ errors.email }
         />
 
         <TextField
@@ -204,17 +202,17 @@ export default function CreateUserDialog({ open, onClose, onSave }) {
           label="Password"
           name="password"
           type="password"
-          value={userData.password}
-          onChange={handleChange}
-          error={Boolean(errors.password)}
-          helperText={errors.password}
+          value={ userData.password }
+          onChange={ handleChange }
+          error={ Boolean(errors.password) }
+          helperText={ errors.password }
         />
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
+        <Button onClick={ handleClose }>Cancel</Button>
 
-        <Button variant="contained" onClick={handleSave}>
+        <Button variant="contained" onClick={ handleSave }>
           Save
         </Button>
       </DialogActions>

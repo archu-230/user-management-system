@@ -13,26 +13,26 @@ export default function AppDrawer({ open }) {
 
   return (
     <Drawer
-      open={open}
+      open={ open }
       variant="persistent"
-      slotProps={{
+      slotProps={ {
         paper: {
           sx: {
             width: 260,
             boxSizing: "border-box",
           },
         },
-      }}
+      } }
     >
       <Toolbar />
       <SimpleTreeView
-        defaultExpandedItems={getDefaultExpandedItems(navigation)}>
-        {navigation.map((item) => (
+        defaultExpandedItems={ getDefaultExpandedItems(navigation) }>
+        { navigation.map((item) => (
           <DrawerItem
-            key={item.id}
-            item={item}
+            key={ item.id }
+            item={ item }
           />
-        ))}
+        )) }
       </SimpleTreeView>
 
     </Drawer>
