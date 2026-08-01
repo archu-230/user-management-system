@@ -11,26 +11,26 @@ import MainContainer from "../MainContainer";
 
 const MainLayout = () => {
 
-    const [open, setOpen] = useState(true);
+  const [ open, setOpen ] = useState(true);
 
-    return (
-        <>
-            <AppBar onClickMenu={() => setOpen(!open)} />
+  return (
+    <>
+      <AppBar onClickMenu={ () => setOpen(!open) } />
 
-            <AppDrawer open={open} />
+      <AppDrawer open={ open } />
 
-            <MainContainer open={open}>
+      <MainContainer open={ open }>
 
-                <AppBreadcrumb open={open} />
+        <AppBreadcrumb open={ open } />
 
-                <Box sx={{ p: 1 }}>
-                    <Outlet />
-                </Box>
+        <Box sx={ { p: 1 } }>
+          <Outlet />
+        </Box>
 
-            </MainContainer>
+      </MainContainer>
 
-        </>
-    );
+    </>
+  );
 };
 
 export default MainLayout;

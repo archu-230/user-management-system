@@ -1,9 +1,8 @@
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { IconButton,Avatar } from "@mui/material";
-import user from "../../assets/user.png"
-import { IconButton } from "@mui/material";
-import BlockIcon from "@mui/icons-material/Block"
+import { IconButton, Avatar } from "@mui/material";
+import user from "../../assets/user.png";
+import BlockIcon from "@mui/icons-material/Block";
 
 export const columns = [
   {
@@ -22,8 +21,8 @@ export const columns = [
     justifyContent:"center",
     display:"flex",
     alignItems:"center",
-    renderCell: (params)=>(<Avatar src={params.value||user}/>),
- },
+    renderCell: (params)=>(<Avatar src={ params.value || user }/>),
+  },
   {
     field: "name",
     headerName: "Name",
@@ -47,24 +46,21 @@ export const columns = [
     filterable: false,
     align: "center",
     headerAlign: "center",
-    renderCell: (params) => (
+    renderCell: () => (
       <>
         <IconButton
           color="primary"
-          onClick={() => console.log("Edit", params.row)}
         >
           <EditIcon />
         </IconButton>
 
         <IconButton
           color="error"
-          onClick={() => console.log("Delete", params.row)}
         >
           <DeleteIcon />
         </IconButton>
         <IconButton
           color="warning"
-          onClick={() => console.log("Block", params.row)}
         >
           <BlockIcon />
         </IconButton>

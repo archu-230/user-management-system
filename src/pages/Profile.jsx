@@ -14,47 +14,47 @@ export default function Profile() {
   const navigate = useNavigate();
   return (
     <Box
-      sx={{
+      sx={ {
         p: 1,
-      }}
+      } }
     >
       <Paper
-        elevation={2}
-        sx={{
+        elevation={ 2 }
+        sx={ {
           width: "100%",
           maxWidth: 700,
           p: { xs: 2, sm: 4 },
           borderRadius: { xs: 2, sm: 3 },
-        }}
+        } }
       >
-        <Stack spacing={3}>
-          {/* Header */}
+        <Stack spacing={ 3 }>
+          { /* Header */ }
           <Stack
-            direction={{ xs: "column", sm: "row" }}
-            spacing={2}
-            sx={{ alignItems: { xs: "flex-start", sm: "center" } }}
+            direction={ { xs: "column", sm: "row" } }
+            spacing={ 2 }
+            sx={ { alignItems: { xs: "flex-start", sm: "center" } } }
           >
             <Avatar
-              sx={{
+              sx={ {
                 width: { xs: 64, sm: 80 },
                 height: { xs: 64, sm: 80 },
                 fontSize: { xs: 26, sm: 32 },
-              }}
+              } }
             >
               U
             </Avatar>
 
-            <Box sx={{ flexGrow: 1, minWidth: 0 }}>
-              <Typography variant="h5" fontWeight={600} sx={{ fontSize: { xs: 20, sm: 24 } }}>
+            <Box sx={ { flexGrow: 1, minWidth: 0 } }>
+              <Typography variant="h5" fontWeight={ 600 } sx={ { fontSize: { xs: 20, sm: 24 } } }>
                 User Name
               </Typography>
 
               <Typography
                 color="text.secondary"
-                sx={{
+                sx={ {
                   wordBreak: "break-word",
                   fontSize: { xs: 14, sm: 16 },
-                }}
+                } }
               >
                 user@example.com
               </Typography>
@@ -62,9 +62,9 @@ export default function Profile() {
 
             <Button
               variant="outlined"
-              startIcon={<EditOutlinedIcon />}
-              sx={{ width: { xs: "100%", sm: "auto" } }}
-              onClick={() => navigate("/profile/edit")}
+              startIcon={ <EditOutlinedIcon /> }
+              sx={ { width: { xs: "100%", sm: "auto" } } }
+              onClick={ () => navigate("/profile/edit") }
             >
               Edit
             </Button>
@@ -72,13 +72,13 @@ export default function Profile() {
 
           <Divider />
 
-          {/* Information */}
+          { /* Information */ }
           <Box>
             <Typography variant="h6" gutterBottom>
               Personal Information
             </Typography>
 
-            <Stack spacing={2}>
+            <Stack spacing={ 2 }>
               <Box>
                 <Typography variant="caption" color="text.secondary">
                   Full Name

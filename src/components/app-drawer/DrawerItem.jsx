@@ -1,78 +1,78 @@
 import { Link, useLocation } from "react-router-dom";
-import { Box, ListItemIcon, ListItemText, useTheme } from "@mui/material";
+import { Box, ListItemIcon, ListItemText } from "@mui/material";
 import { TreeItem } from "@mui/x-tree-view/TreeItem";
 
 export default function DrawerItem({ item }) {
-    const theme = useTheme();
-    const location = useLocation();
 
-    const isSelected = location.pathname === item.path;
-    const hasChildren = Boolean(item.children?.length);
+  const location = useLocation();
 
-    return (
-        <TreeItem
-            sx={{
-                color: "text.primary",
+  const isSelected = location.pathname === item.path;
+  const hasChildren = Boolean(item.children?.length);
 
-                "& .MuiTreeItem-content": {
-                    minHeight: 36,
-                    height: 36,
-                    marginTop: 1,
-                },
+  return (
+    <TreeItem
+      sx={ {
+        color: "text.primary",
 
-                "& .MuiTreeItem-content.Mui-selected": {
-                    backgroundColor: "action.selected",
-                },
+        "& .MuiTreeItem-content": {
+          minHeight: 36,
+          height: 36,
+          marginTop: 1,
+        },
 
-                "& .MuiTreeItem-content.Mui-selected:hover": {
-                    backgroundColor: "action.hover",
-                },
-            }}
-            itemId={item.id}
-            label={
-                <Box
-                    component={!hasChildren ? Link : "div"}
-                    to={!hasChildren ? item.path : undefined}
-                    sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        width: "100%",
-                        height: 36,
-                        px: 1,
-                        borderRadius: 1,
-                        textDecoration: "none",
-                        color: "inherit",
-                    }}
-                >
-                    {item.icon && (
-                        <ListItemIcon
-                            sx={{
-                                minWidth: 36,
-                                color: "inherit",
-                            }}
-                        >
-                            {item.icon}
-                        </ListItemIcon>
-                    )}
+        "& .MuiTreeItem-content.Mui-selected": {
+          backgroundColor: "action.selected",
+        },
 
-                    <ListItemText
-                        primary={item.title}
-                        slotProps={{
-                            primary: {
-                                fontWeight: isSelected ? 700 : 500,
-                            },
-                        }}
-                    />
-                </Box>
-            }
+        "& .MuiTreeItem-content.Mui-selected:hover": {
+          backgroundColor: "action.hover",
+        },
+      } }
+      itemId={ item.id }
+      label={
+        <Box
+          component={ !hasChildren ? Link : "div" }
+          to={ !hasChildren ? item.path : undefined }
+          sx={ {
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+            height: 36,
+            px: 1,
+            borderRadius: 1,
+            textDecoration: "none",
+            color: "inherit",
+          } }
         >
-            {hasChildren &&
+          { item.icon && (
+            <ListItemIcon
+              sx={ {
+                minWidth: 36,
+                color: "inherit",
+              } }
+            >
+              { item.icon }
+            </ListItemIcon>
+          ) }
+
+          <ListItemText
+            primary={ item.title }
+            slotProps={ {
+              primary: {
+                fontWeight: isSelected ? 700 : 500,
+              },
+            } }
+          />
+        </Box>
+      }
+    >
+      { hasChildren &&
                 item.children.map((child) => (
-                    <DrawerItem
-                        key={child.id}
-                        item={child}
-                    />
-                ))}
-        </TreeItem>
-    );
+                  <DrawerItem
+                    key={ child.id }
+                    item={ child }
+                  />
+                )) }
+    </TreeItem>
+  );
 }
